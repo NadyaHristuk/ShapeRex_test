@@ -42,5 +42,8 @@
     "gulp-svgstore": "^7.0.1",
     "gulp-uglify": "^3.0.2",
     "stylelint": "^9.10.1"
+  },
+  "dependencies": {
+    "chart.js": "^2.8.0"
   }
 }
