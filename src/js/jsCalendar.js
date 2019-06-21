@@ -183,7 +183,7 @@ var jsCalendar = (function(){
         zeroFill : false,
         monthFormat : 'month',
         dayFormat : 'DDD',
-        firstDayOfTheWeek : 1,
+        firstDayOfTheWeek : 2,
         navigator : true,
         navigatorPosition : 'both',
         min : false,
@@ -1492,10 +1492,11 @@ var jsCalendar = (function(){
         this.set(date);
         setDate(date);
     });
+    
     // calendar.onMonthChange(function (event, date) {
     //     console.log(date);
     // });
    function setDate(){
- document.getElementById("calendar_now_date").innerHTML = jsCalendar.tools.dateToString(calendar.getDate(), 'MONTH DD, YYYY', 'en');    
+ document.getElementById("calender_now_date").innerHTML = jsCalendar.tools.dateToString(calendar.getDate(), 'MONTH DD, YYYY', 'en');    
 }
 setDate(); 

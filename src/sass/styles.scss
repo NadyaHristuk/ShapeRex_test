@@ -3,6 +3,24 @@
 */
 @import "./normalize";
 @import "./jscalendar";
+
+$main-color: #404447;
+$sb-hover-color: #fe9230;
+$sb-link_color: #5a5b5e;
+$poppins-font-family: "Poppins", sans-serif;
+
+@mixin font-family(
+  $color: $main-color,
+  $font-size: 16px,
+  $weight: 500,
+  $font-family: $poppins-font-family
+) {
+  font-family: $font-family;
+  font-weight: $weight;
+  color: $color;
+  font-size: $font-size;
+}
+
 html {
   height: 100%;
   margin: 0;
@@ -18,7 +36,7 @@ body {
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
-  color: #404447;
+  color: $main-color;
   background-color: #ffffff;
 }
 
@@ -70,7 +88,7 @@ input[type="radio"].visually-hidden {
   grid-template-columns: 250px 950px;
   grid-template-rows: 73px 828px;
 }
-
+// HEADER
 .header {
   grid-area: header;
   display: flex;
@@ -89,15 +107,27 @@ input[type="radio"].visually-hidden {
     align-items: center;
     list-style: none;
     position: relative;
-
+    &__notification {
+      @include font-family(#a6a7a8, 14px);
+      position: absolute;
+      top: -18px;
+      right: -15px;
+    }
+    &__notification-message {
+      @include font-family(#a6a7a8, 14px);
+      position: absolute;
+      top: -18px;
+      right: -8px;
+    }
     &__item {
-      margin-right: 50px;
+      margin-right: 33px;
+      position: relative;
     }
     &__item:nth-last-child(2) {
-      margin-right: 70px;
+      margin-right: 51px;
     }
     &__item:nth-last-child(1) {
-      margin-right: 44px;
+      margin-right: 23px;
       display: flex;
       align-items: center;
 
@@ -118,35 +148,289 @@ input[type="radio"].visually-hidden {
   }
 }
 
+// MAIN
+
 .main {
   grid-area: main;
-  padding: 18px 22px 36px 18px;
+  box-sizing: border-box;
+  padding: 18px 0 0 30px;
   background-color: rgba(255, 255, 255, 0.8);
   display: grid;
   grid-template:
     "credit-card statistics statistics"
-    "sidebar main"
-    "sidebar main";
+    "earning montly-sale calender"
+    "earning yealy-saled calender";
   grid-template-columns: repeat(3, 284px);
-  grid-template-rows: 368px repeat(2, 172px);
+  grid-template-rows: 368px repeat(2, 180px);
   grid-gap: 18px;
 }
 .credit-card {
   grid-area: credit-card;
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 20px 20px 28px 20px;
+  box-sizing: border-box;
+  &__title {
+    @include font-family();
+    margin: 0 0 30px;
+    letter-spacing: 1px;
+  }
+  &__card {
+    background-image: url(../images/bg-credit-card@1X.png);
+    background-repeat: no-repeat;
+    width: 234px;
+    height: 124px;
+    border-radius: 3px;
+    position: relative;
+    padding-bottom: 35px;
+    border-bottom: 1px solid #e8dcdb;
+    margin: 0 auto 22px;
+  }
+
+  &__number {
+    @include font-family(#fff);
+    letter-spacing: 2px;
+    position: absolute;
+    top: 36px;
+    left: 22px;
+  }
+  &__validity-period {
+    @include font-family(rgba(255, 255, 255, 0.7), 13px);
+    letter-spacing: 2px;
+    position: absolute;
+    top: 88px;
+    left: 20px;
+  }
+  &__text {
+    @include font-family(rgba(255, 255, 255, 0.7), 13px);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: absolute;
+    top: 88px;
+    right: 38px;
+    letter-spacing: 0.9px;
+  }
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  .table__cell-name {
+    width: 101px;
+    line-height: 27px;
+    @include font-family(#b2b5b8, 13px);
+    letter-spacing: 0.5px;
+  }
+  .table__cell-value {
+    width: 101px;
+
+    @include font-family($main-color, 13px);
+    letter-spacing: 0.5px;
+  }
 }
 .statistics {
   grid-area: statistics;
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 24px 20px 24px 20px;
+  box-sizing: border-box;
+  &__title {
+    @include font-family();
+    margin: 0 0 0 3px;
+    letter-spacing: 1px;
+  }
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+  }
+  &__container {
+    display: flex;
+    margin: 0;
+  }
+  &__month {
+    display: flex;
+    align-items: center;
+    &::after {
+      content: "";
+      display: block;
+      background-image: url(../images/icon-arrow-down.svg);
+      background-repeat: no-repeat;
+      width: 10px;
+      height: 8px;
+      margin-left: 4px;
+    }
+  }
+  &__year {
+    display: flex;
+    align-items: center;
+    margin-right: 32px;
+    &::after {
+      content: "";
+      display: block;
+      background-image: url(../images/icon-arrow-down.svg);
+      background-repeat: no-repeat;
+      width: 10px;
+      height: 8px;
+      margin-left: 6px;
+    }
+  }
 }
-.credit-card {
-  grid-area: credit-card;
-}
-.credit-card {
-  grid-area: credit-card;
-}
-.credit-card {
-  grid-area: credit-card;
-}
+.earning {
+  grid-area: earning;
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 27px 34px 26px 20px;
+  box-sizing: border-box;
+  &__title {
+    @include font-family();
+    margin: 0 0 25px;
+    letter-spacing: 1px;
+  }
+  &__chart {
+    width: 138px;
+    // box-sizing: border-box;
+    padding: 0 47px 24px;
+    border-bottom: 1px solid #e8dcdb;
+    margin: 0 auto 24px;
+    position: relative;
+  }
+  &__value {
+    @include font-family($main-color, 24px);
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-35%, -100%);
+  }
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    line-height: 28px;
+  }
+  .table__cell-name {
+    width: 59px;
 
+    @include font-family(#8d99a3, 13px);
+    letter-spacing: 0.5px;
+  }
+  .table__cell-value {
+    width: 109px;
+
+    @include font-family($main-color, 13px);
+    letter-spacing: 0.5px;
+    text-align: right;
+  }
+}
+.montly-sale {
+  grid-area: montly-sale;
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 28px 21px 0 27px;
+  box-sizing: border-box;
+  position: relative;
+  &__title {
+    @include font-family();
+    margin: 0 0 30px;
+    letter-spacing: 1px;
+  }
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+  &__value {
+    @include font-family($main-color, 32px);
+    margin: 6px 0 6px 0;
+    display: block;
+  }
+  &__name {
+    @include font-family(#8d99a3, 13px);
+    display: block;
+    // line-height: 20px;
+  }
+  &__bar {
+    line-height: 24px;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+  }
+  &__icon {
+    border-radius: 4px;
+  }
+}
+.yealy-sale {
+  grid-area: yealy-saled;
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 28px 21px 0 27px;
+  box-sizing: border-box;
+  position: relative;
+  &__title {
+    @include font-family();
+    letter-spacing: 1px;
+    margin: 0 0 28px;
+  }
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+  &__value {
+    @include font-family($main-color, 32px);
+    margin: 6px 0 6px 0;
+    display: block;
+  }
+  &__name {
+    @include font-family(#8d99a3, 13px);
+    display: block;
+    // line-height: 20px;
+  }
+  &__bar {
+    line-height: 24px;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    bottom: -7px;
+    left: 0;
+  }
+  &__icon {
+    border-radius: 4px;
+  }
+}
+.calender {
+  grid-area: calender;
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 35px 4px 24px 30px;
+  box-sizing: border-box;
+
+  &__icon {
+    border-radius: 4px;
+    margin-right: 17px;
+  }
+  &__now_date {
+    @include font-family(#748088, 13px);
+    margin: 0;
+    line-height: 20px;
+  }
+  &__title {
+    @include font-family();
+    margin: 0;
+    letter-spacing: 1px;
+  }
+  &__wrapper {
+    display: flex;
+    align-items: center;
+  }
+}
+// SIDEBAR
 .sidebar {
   grid-area: sidebar;
 
@@ -155,7 +439,7 @@ input[type="radio"].visually-hidden {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    padding-top: 42px;
+    padding-top: 28px;
     background-color: rgba(255, 255, 255, 0.5);
     border-bottom: #e8dcdb;
   }
@@ -174,7 +458,7 @@ input[type="radio"].visually-hidden {
     left: 0;
     height: 27px;
     width: 3px;
-    background-color: #fe9230;
+    background-color: $sb-hover-color;
     display: none;
   }
   .admin-panel {
@@ -190,9 +474,9 @@ input[type="radio"].visually-hidden {
       justify-content: center;
     }
     &-navigation {
-      margin-bottom: 470px;
+      margin: 0 0 470px;
       &__item {
-        margin-bottom: 39px;
+        margin-bottom: 18px;
         padding-left: 44px;
         position: relative;
         &:hover > .dush::before {
@@ -204,16 +488,21 @@ input[type="radio"].visually-hidden {
         &:active > .dush::before {
           display: block;
         }
+        &:last-child {
+          margin-bottom: 0px;
+        }
       }
       &__link {
         font-size: 15px;
+        line-height: 22px;
         font-weight: 500;
         display: block;
-        color: #5a5b5e;
+        color: $sb-link_color;
+        letter-spacing: 1px;
         &:hover,
         &:focus,
         &:active {
-          color: #fe9230;
+          color: $sb-hover-color;
         }
       }
       &__dashboard {
@@ -221,7 +510,7 @@ input[type="radio"].visually-hidden {
         background-position: 0 4px;
         background-size: 17px 17px;
         background-repeat: no-repeat;
-        padding-left: 50px;
+        padding-left: 33px;
         &:hover,
         &:focus,
         &:active {
@@ -233,7 +522,7 @@ input[type="radio"].visually-hidden {
         background-position: 0 4px;
         background-size: 17px 17px;
         background-repeat: no-repeat;
-        padding-left: 50px;
+        padding-left: 33px;
         &:hover,
         &:focus,
         &:active {
@@ -245,7 +534,7 @@ input[type="radio"].visually-hidden {
         background-position: 0 4px;
         background-size: 17px 17px;
         background-repeat: no-repeat;
-        padding-left: 50px;
+        padding-left: 33px;
         &:hover,
         &:focus,
         &:active {
@@ -257,7 +546,7 @@ input[type="radio"].visually-hidden {
         background-position: 0 4px;
         background-size: 17px 17px;
         background-repeat: no-repeat;
-        padding-left: 50px;
+        padding-left: 33px;
         &:hover,
         &:focus,
         &:active {
@@ -269,7 +558,7 @@ input[type="radio"].visually-hidden {
         background-position: 0 4px;
         background-size: 17px 17px;
         background-repeat: no-repeat;
-        padding-left: 50px;
+        padding-left: 33px;
         &:hover,
         &:focus,
         &:active {
@@ -281,7 +570,7 @@ input[type="radio"].visually-hidden {
         background-position: 0 4px;
         background-size: 17px 17px;
         background-repeat: no-repeat;
-        padding-left: 50px;
+        padding-left: 33px;
         &:hover,
         &:focus,
         &:active {
@@ -293,7 +582,7 @@ input[type="radio"].visually-hidden {
         background-position: 0 4px;
         background-size: 9px 17px;
         background-repeat: no-repeat;
-        padding-left: 50px;
+        padding-left: 33px;
         &:hover,
         &:focus,
         &:active {
@@ -308,15 +597,97 @@ input[type="radio"].visually-hidden {
       font-size: 15px;
       font-weight: 500;
       display: block;
-      color: #5a5b5e;
+      color: $sb-link_color;
+      letter-spacing: 1px;
 
       &-icon {
         background-image: url(../images/icon-logout.svg);
         background-position: 0 4px;
         background-size: 17px 17px;
         background-repeat: no-repeat;
-        padding-left: 50px;
+        padding-left: 34px;
       }
     }
+  }
+}
+
+@media (min-device-width: 768px) and (max-device-width: 1199px) {
+  .sidebar {
+    display: none;
+  }
+  .container {
+    width: 768px;
+    margin: 0 auto;
+    grid-template:
+      "header"
+      "main"
+      "main";
+    grid-template-columns: 768px;
+    grid-template-rows: 73px auto;
+  }
+  .main {
+    min-width: 768px;
+    padding: 18px 30px 0 30px;
+    margin: 0 auto;
+    grid-template:
+      " . credit-card earning"
+      " . credit-card earning"
+      ". statistics statistics"
+      ". statistics statistics"
+      ". montly-sale calender"
+      ". yealy-saled calender";
+    grid-template-columns: 1fr repeat(2, 284px) 1fr;
+    grid-template-rows: repeat(6, 180px);
+    grid-gap: 18px;
+  }
+}
+
+@media (min-device-width: 480px) and (max-device-width: 767px) {
+  .sidebar {
+    display: none;
+  }
+  .container {
+    width: 480px;
+    max-width: 100%;
+    grid-template:
+      "header"
+      "main"
+      "main";
+    grid-template-columns: 100%;
+    grid-template-rows: 73px 828px;
+  }
+  .main {
+    width: 480px;
+    text-align: center;
+    max-width: 100%;
+    padding: 18px 30px 0 30px;
+    margin: 0 auto;
+    grid-template:
+      " . credit-card "
+      ". earning"
+      ". statistics "
+      ". statistics"
+      ". montly-sale "
+      ". yealy-saled"
+      ". calender";
+    grid-template-columns: 1fr 80% 1fr;
+    grid-template-rows: repeat(8, auto);
+    grid-gap: 18px;
+  }
+  .yealy-sale__wrapper,
+  .montly-sale__wrapper {
+    margin-bottom: 50px;
+  }
+  .calender {
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  #ChartPoint {
+    width: 300px !important;
+  }
+  #pbt2,
+  #pbt1 {
+    text-align: left;
   }
 }

@@ -26,10 +26,10 @@ function float2dollar(value) {
 function renderChart(data, labels) {
   var ctx = document.getElementById("ChartPoint").getContext("2d");
   let fillPatternPoli = ctx.createLinearGradient(0, 0, 200, 0);
-  fillPatternPoli.addColorStop(0, "#FBF3ED7f"); // 'rgba(0, 0, 0, 0.1)'
-  fillPatternPoli.addColorStop(1, "#FCE9E97f");
+  fillPatternPoli.addColorStop(0, "#FBF3EDe6"); // 'rgba(0, 0, 0, 0.1)'
+  fillPatternPoli.addColorStop(1, "#FCE9E9e6");
   let fillPatternLine = ctx.createLinearGradient(0, 0, 200, 0);
-  fillPatternLine.addColorStop(0, "#FFB768"); // 'rgba(0, 0, 0, 0.1)'
+  fillPatternLine.addColorStop(0, "#F6860D"); // 'rgba(0, 0, 0, 0.1)'
   fillPatternLine.addColorStop(1, "#FF3A4C");
   var myChart = new Chart(ctx, {
     type: "line",

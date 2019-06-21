@@ -10,7 +10,7 @@
       rel="stylesheet"
     />
     <!-- <link rel="stylesheet" href=""> -->
-    <link rel="stylesheet" href="css/styles.min.css" />
+    <link rel="stylesheet" href="./css/styles.min.css" />
   </head>
 
   <body>
@@ -25,20 +25,21 @@
                   src="./images/icon-search.svg"
                   width="18"
                   height="19"
-                  alt="header-navigation__icon-search"
+                  alt="icon-search"
               /></a>
             </li>
             <li class="header-navigation__item ">
               <a
-                class="admin-panel-navigation__link admin-panel-navigation__dashboard"
+                class="header-navigation__link header-navigation__dashboard"
                 href="#"
               >
                 <img
                   src="./images/icon-notification.svg"
                   width="18"
                   height="19"
-                  alt="header-navigation__icon-invoice"
-              /></a>
+                  alt="icon-invoice"
+              />
+            <span class="header-navigation__notification">24</span></a>
             </li>
             <li class="header-navigation__item ">
               <a class="header-navigation__link" href="#">
@@ -46,8 +47,9 @@
                   src="./images/icon-message.svg"
                   width="18"
                   height="14"
-                  alt="header-navigation__icon-message"
-              /></a>
+                  alt="header-navigation icon-message"
+              />
+              <span class="header-navigation__notification-message">5</span></a>
             </li>
             <li class="header-navigation__item">
               <a class="header-navigation__link" href="#">
@@ -55,7 +57,7 @@
                   src="./images/nick-ramil@1X.png"
                   width="41"
                   height="41"
-                  alt="header-navigation__icon-search"
+                  alt="user logo"
               /></a>
             </li>
           </ul>
@@ -73,7 +75,7 @@
               />
             </a>
             <ul class="admin-panel-navigation">
-              <li class="admin-panel-navigation__item ">
+              <li class="admin-panel-navigation__item">
                 <a
                   class="admin-panel-navigation__link admin-panel-navigation__dashboard dush"
                   href="#"
@@ -137,44 +139,100 @@
           <section class="credit-card">
             <h2 class="credit-card__title">My Credit Card</h2>
             <div class="credit-card__card">
-              <p class="credit-card__number">2450 24512 25412</p>
+              <p class="credit-card__number">2450&nbsp&nbsp24512&nbsp&nbsp25412</p>
               <span class="credit-card__validity-period">12/05</span>
               <span class="credit-card__text">Subash</span>
             </div>
+            <table class="credit-card_about table">
+                <tbody>
+                  <tr><td class="table__cell-name">Card number :</td><td class="table__cell-value">2450 24512 25412</td></tr>
+                  <tr><td class="table__cell-name">Account Name:</td><td class="table__cell-value">Subash Chandra</td></tr>
+                  <tr><td class="table__cell-name">Card status:</td><td class="table__cell-value">Active</td></tr>                
+              </tbody>
+            </table>
           </section>
           <section class="statistics">
             <div class="statistics__header">
               <h2 class="statistics__title">Statistics</h2>
-              <span class="statistics__year">2018</span>
-              <span class="statistics_month">Month</span>
+              <p class="statistics__container"><span class="statistics__year">2018</span>
+                <span class="statistics__month">Month</span></p>
+              
             </div>
-            <div style="height: 200px; width:400px">
-              <canvas id="ChartPoint"> </canvas>
+            <div style="height: 284px; width:548px">
+              <canvas id="ChartPoint"></canvas>
             </div>
           </section>
-          <section></section>
-          <section></section>
-          <section></section>
-          <section></section>
-
-          <div style="height: 200px; width:400px">
-            <canvas id="ChartDoughnut"> </canvas>
-          </div>
+          <section class="earning">
+            <h2 class="earning__title">Earning in Month</h2>
+            <div class="earning__chart" style="height: 136px; width:136px">
+                <canvas id="ChartDoughnut" style="height: 136px; width:136px" height="136px" width="136px"></canvas>
+                <span class="earning__value">75 %</span>
+                
+            </div>
+            <table class="earning_about table">
+            <tbody>
+                <tr><td class="table__cell-name">Deposit :</td><td class="table__cell-value">$20 54 1 875 574</td></tr>            </td></tr>
+                <tr><td class="table__cell-name">Expese :</td><td class="table__cell-value">$54 1 875 574</td></tr>
+                <tr><td class="table__cell-name">payable :</td><td class="table__cell-value">$805 875 574</td></tr>                
+            </tbody>
+          </table>
+          </section>
+          <section class="montly-sale">
+            <h2 class="montly-sale__title">Montly Sale</h2>
+            <div class="montly-sale__wrapper">
+              <div class="montly-sale__container">
+              <span class="montly-sale__value">20 54 1</span>
+              <span class="montly-sale__name">Today Income</span>
+            </div>
+            <img class="montly-sale__icon" src="./images/today-income@1X.jpeg" height="53px" width="74px"alt="today income">
+            </div>
+            <div id="line-container1" class="montly-sale__bar">
+                              <div id = "pbt1" style="position: relative; top: 4px; left: 0%; color: #ffb767" class = "Progress"> 50 %</div>
+                 <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100.08 3" width="284"
+                    height="10">
+            
+                     <path d="M 0 2.5 L 100 2.5" fill-opacity="0" stroke="#eee" /> 
+                        <path transform="translate(0,0)" id="circle1" d="M 0 2.1 L 1 0 L 2 2.1"
+                            style="fill:#ffb767;stroke:#000000;width:3px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0;fill-opacity:1;opacity:1" />
+                    <path id="heart1" fill-opacity="0" d="M 0 2.5 L 100 2.5" fill="none" stroke="#ffb767" />
+                </svg>
+            </div>
+                
+          </section>
+          <section class="yealy-sale">
+            <h2 class="yealy-sale__title">Yealy Sale</h2>
+            <div class="yealy-sale__wrapper">
+                <div class="yealy-sale__container">
+                <span class="yealy-sale__value">20 54 125 </span>
+                <span class="yealy-sale__name">Today Income</span>
+              </div>
+              <img class="yealy-sale__icon" src="./images/today-income_year@1X.jpeg" alt="today income">
+            </div>
+            <div id="line-container2" class="yealy-sale__bar">
+                <div id = "pbt2" style="position: relative; top: 4px; left: 0%; color: #18bb4b" class = "Progress"> 50 %</div>
+                 <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100.08 3" width="284"
+                    height="10">
+            
+                     <path d="M 0 2.5 L 100 2.5" fill-opacity="0" stroke="#eee" /> 
+                        <path transform="translate(0,0)" id="circle2" d="M 0 2.1 L 1 0 L 2 2.1"
+                            style="fill:#18bb4b;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0;fill-opacity:1;opacity:1" />
+                    <path id="heart2" fill-opacity="0" d="M 0 2.5 L 100 2.5" fill="none" stroke="#18bb4b" />
+                </svg>
+            </div>
+          </section>
+          <section class="calender">            
+            <div class="calender__wrapper">
+              <img class="calender__icon" src="./images/calendar@1X.jpeg" alt="calendar" />
+              <div class="calender__container">
+                <h2 class="calender__title">Calender</h2>
+                <p class="calender__now_date" id="calender_now_date">March 26, 2018</p>
+              </div>
+            </div>
+            <div id="my-calendar" class="jsCalendar material-theme"></div>
+          </section>
         </main>
       </div>
-    </div>
-    <section class="Calendar">
-      <div class="headerCalendar">
-        <img src="" alt="calendar " />
-        <div>
-          <p><span> Calendar</span></p>
-          <p id="calendar_now_date">March 26, 2018</p>
-        </div>
-      </div>
-      <div id="my-calendar" class="jsCalendar material-theme"></div>
-    </section>
-
-    <script src="js/scripts.js"></script>
-    <!-- <script src="js/jsCalendar.js"></script> -->
+    </div>   
+    <script src="./js/scripts.js"></script>   
   </body>
 </html>
