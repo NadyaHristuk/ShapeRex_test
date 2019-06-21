@@ -1,13 +1,13 @@
 # ShapeRex_test
 
 
-# ShapeRex_test — макет админ-панели для учетной записи.
+##ShapeRex_test — макет админ-панели для учетной записи.
 
 Использованные технологии:
 Canvas;
 SVG;
 Семантическая верстка;
-Библиотеки: jsCalendar, Cart.js, 
+Библиотеки: jsCalendar, Cart.js, Progressbar.js; 
 Наименование классов - БЭМ;
 Препроцессор - Sass (SCSS);
 Автомотизация - сборка Gulp; 
